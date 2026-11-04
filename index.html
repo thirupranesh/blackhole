@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Search</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background-color: lightblue;
+            padding: 30px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+
+        li {
+            list-style: none;
+            background-color: white;
+            padding: 10px;
+            margin: 5px auto;
+            width: 250px;
+        }
+
+        #message {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student Search</h2>
+
+    <input type="text" id="search"
+           placeholder="Search student name">
+
+    <ul id="studentList">
+        <li>Ananya</li>
+        <li>Arun</li>
+        <li>Divya</li>
+        <li>Karthik</li>
+        <li>Meena</li>
+        <li>Priya</li>
+        <li>Rahul</li>
+        <li>Ravi</li>
+        <li>Sneha</li>
+        <li>Vijay</li>
+       <li>julish</li>
+        <li>tevin</li>
+       <li>rithik</li>
+       <li>kailash</li>
+       <li>udhayai</li>
+       <li>thirupranesh</li>
+       <li>afsana</li>
+       <li>varsha</li>
+    </ul>
+
+    <p id="message"></p>
+
+    <script>
+        let search = document.getElementById("search");
+        let students = document.querySelectorAll("#studentList li");
+        let message = document.getElementById("message");
+
+        search.addEventListener("input", function() {
+
+            let value = search.value.toLowerCase();
+            let found = false;
+
+            students.forEach(function(student) {
+
+                let name = student.textContent.toLowerCase();
+
+                if (name.includes(value)) {
+                    student.style.display = "block";
+                    found = true;
+                }
+                else {
+                    student.style.display = "none";
+                }
+
+            });
+
+            if (!found) {
+                message.textContent = "No student found";
+            }
+            else {
+                message.textContent = "";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
